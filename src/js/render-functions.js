@@ -15,13 +15,9 @@ function clearSimpleBox() {
     galleryEl.innerHTML = '';
 }
 
-function onOffLoader() {
-    loaderEl.classList.toggle('is-hidden');
-}
 
 export const renderImages = images => {
     clearSimpleBox();
-    onOffLoader();
     const markup = images.map(({
         tags,
         webformatURL,
@@ -39,7 +35,6 @@ export const renderImages = images => {
     }).join('');
     galleryEl.insertAdjacentHTML('beforeend',markup);
     lightbox.refresh();
-    onOffLoader();
 }
 lightbox.on('shown.simplelightbox', function () {
     const currentLink = document.querySelector('.sl-current .sl-image').parentElement;

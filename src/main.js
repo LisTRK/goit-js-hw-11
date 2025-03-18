@@ -4,7 +4,12 @@ import { renderImages } from "./js/render-functions.js";
 
 const formEl = document.querySelector("form");
 const inputEl = document.querySelector(".input-form")
+function onOffLoader() {
+    loaderEl.classList.toggle('is-hidden');
+}
 
+
+onOffLoader();
 
 formEl.addEventListener('submit', event => {
     event.preventDefault();
@@ -18,6 +23,12 @@ formEl.addEventListener('submit', event => {
         return;
     }
     queryPixabay(query)
-        .then(images => renderImages(images))
-        .catch(error => console.error(error));
+        .then(images => {
+            renderImages(images);
+            onOffLoader();
+        })
+        .catch(error => {
+            console.error(error);
+            onOffLoader();
+        });
 } )

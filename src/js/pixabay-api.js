@@ -1,6 +1,7 @@
 'use strict';
 import axios from "axios";
 import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css"
 
 const URL_PIXABAY = "https://pixabay.com/api/";
 const KEY_PIXABAY = "49287567-80da5b96f25a95ab41aa198b2"
