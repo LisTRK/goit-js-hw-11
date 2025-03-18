@@ -4,6 +4,8 @@ import { renderImages } from "./js/render-functions.js";
 
 const formEl = document.querySelector("form");
 const inputEl = document.querySelector(".input-form")
+const loaderEl = document.querySelector(".loader");
+
 function onOffLoader() {
     loaderEl.classList.toggle('is-hidden');
 }

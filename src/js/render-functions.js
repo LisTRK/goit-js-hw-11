@@ -8,7 +8,7 @@ const params = {
     captionDelay: 250,
 }
 const galleryEl = document.querySelector(".gallery");
-const loaderEl = document.querySelector(".loader");
+
 let lightbox = new SimpleLightbox('.gallery a', params);
 
 function clearSimpleBox() {
@@ -26,12 +26,17 @@ export const renderImages = images => {
         views,
         comments,
         downloads }) => {
-        return `<a href="${largeImageURL}"
-        data-likes="${likes}"
-        data-views="${views}"
-        data-comments="${comments}"
-        data-downloads="${downloads}">
-        <img src="${webformatURL}" alt="${tags}" title=""/></a>`;   
+        return `<a class="gallery-item" href="${largeImageURL}">
+          <div class="photo-card">
+            <img src="${webformatURL}" alt="${tags}" />
+            <div class="info">
+              <p><b>Likes:</b> ${likes}</p>
+              <p><b>Views:</b> ${views}</p>
+              <p><b>Comments:</b> ${comments}</p>
+              <p><b>Downloads:</b> ${downloads}</p>
+            </div>
+          </div>
+        </a>`;   
     }).join('');
     galleryEl.insertAdjacentHTML('beforeend',markup);
     lightbox.refresh();
@@ -47,7 +52,7 @@ lightbox.on('shown.simplelightbox', function () {
     iziToast.show({
         title: 'Image Info',
         message: `
-            <ul style="list-style:none; padding-left:0;">
+            <ul >
                 <li>❤️ Likes: <b>${likes}</b></li>
                 <li>👁️ Views: <b>${views}</b></li>
                 <li>💬 Comments: <b>${comments}</b></li>

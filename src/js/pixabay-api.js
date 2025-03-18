@@ -25,6 +25,7 @@ export const queryPixabay = query =>
                     position: 'topRight',
                 });
             }
+            
             return response.data.hits; // Завжди повертаємо, навіть якщо пусто
         })
         .catch(error => {
