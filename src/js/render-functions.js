@@ -26,7 +26,8 @@ export const renderImages = images => {
         views,
         comments,
         downloads }) => {
-        return `<a class="gallery-item" href="${largeImageURL}">
+        return `<li>
+        <a class="gallery-item" href="${largeImageURL}">
           <div class="photo-card">
             <img src="${webformatURL}" alt="${tags}" />
             <div class="info">
@@ -36,7 +37,8 @@ export const renderImages = images => {
               <p><b>Downloads:</b> ${downloads}</p>
             </div>
           </div>
-        </a>`;   
+        </a>
+        </li>`;   
     }).join('');
     galleryEl.insertAdjacentHTML('beforeend',markup);
     lightbox.refresh();

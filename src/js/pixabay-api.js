@@ -1,7 +1,7 @@
 'use strict';
 import axios from "axios";
 import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css"
+import "izitoast/dist/css/iziToast.min.css";
 
 const URL_PIXABAY = "https://pixabay.com/api/";
 const KEY_PIXABAY = "49287567-80da5b96f25a95ab41aa198b2"
@@ -18,13 +18,7 @@ export const queryPixabay = query =>
     }
     })
         .then(response => {
-            if (response.data.hits.length === 0) {
-                iziToast.info({
-                    title: 'No result',
-                    message: 'No images found. Please try a different search.',
-                    position: 'topRight',
-                });
-            }
+            
             
             return response.data.hits; // Завжди повертаємо, навіть якщо пусто
         })
